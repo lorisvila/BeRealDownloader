@@ -1,0 +1,16 @@
+#pageContainer {
+  margin: 2em;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+}
+
+h1 {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}

@@ -1,0 +1,46 @@
+#memCardHeader {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#memViewerDiv {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+  gap: 1em;
+}
+
+.memoryCard {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 0.5em;
+  border: transparent;
+  border-radius: 1em;
+  gap: 1em;
+}
+
+#controlsDiv {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  gap: 1em;
+}
+.imageContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.25em;
+}
+.memImage {
+  width: 15vw;
+  border: transparent;
+  border-radius: 0.75em;
+}
+.memText {
+  margin: 0;
+}

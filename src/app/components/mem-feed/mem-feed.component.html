@@ -1,0 +1,49 @@
+<wcs-card>
+  <wcs-card-body id="memCardHeader">
+    <h3 class="h3CardHeader">Memories</h3>
+    <wcs-button *ngIf="communicationService.API_userToken" mode="stroked" class="wcs-secondary"><wcs-mat-icon icon="refresh" (click)="communicationService.getAllMemFeed()"></wcs-mat-icon></wcs-button>
+  </wcs-card-body>
+  <wcs-divider></wcs-divider>
+  <wcs-card-body>
+
+    <div id="memViewerDiv">
+
+      <div class="memoryCard" *ngFor="let memory of communicationService.filteredMemFeed">
+        <div class="imageContainer">
+          <img [src]="memory.primary.url" class="memImage">
+          <img [src]="memory.secondary.url" class="memImage">
+        </div>
+        <p class="memText">Date : <b>{{memory.memoryDay}}</b></p>
+        <ng-container *ngIf="!memory.isLate">
+          <p class="memText">Posté à l'heure 😎</p>
+        </ng-container>
+        <ng-container *ngIf="memory.isLate">
+          <p class="memText">Posté en retard 😏</p>
+        </ng-container>
+      </div>
+
+    </div>
+
+  </wcs-card-body>
+  <wcs-divider></wcs-divider>
+  <wcs-card-body>
+
+    <div id="controlsDiv">
+
+      <wcs-select #selectMemInterval [value]="communicationService.memInterval" id="numberMemSelect" (wcsChange)="communicationService.memInterval = selectMemInterval.value ; communicationService.prepareFeedElements()">
+        <wcs-select-option [value]="10">10</wcs-select-option>
+        <wcs-select-option [value]="20">20</wcs-select-option>
+        <wcs-select-option [value]="30">30</wcs-select-option>
+        <wcs-select-option [value]="40">40</wcs-select-option>
+        <wcs-select-option [value]="50">50</wcs-select-option>
+      </wcs-select>
+
+      <wcs-badge style="display: flex; flex-flow: column; justify-content: center">{{communicationService.actualPositionInFeed+1}}/{{communicationService.memFeedLenght}}</wcs-badge>
+
+      <wcs-button class="wcs-info" shape="square" (click)="communicationService.moveBackwardsMem()"><wcs-mat-icon icon="chevron_left"></wcs-mat-icon></wcs-button>
+      <wcs-button class="wcs-info" shape="square" (click)="communicationService.moveForwardsMem()"><wcs-mat-icon icon="chevron_right"></wcs-mat-icon></wcs-button>
+
+    </div>
+
+  </wcs-card-body>
+</wcs-card>

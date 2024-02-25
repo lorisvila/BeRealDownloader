@@ -1,0 +1,16 @@
+<wcs-card>
+  <wcs-card-body>
+    <h3 class="h3CardHeader">Connexion</h3>
+  </wcs-card-body>
+  <wcs-divider></wcs-divider>
+  <wcs-card-body>
+    <form [formGroup]="formOTP" (ngSubmit)="communicationService.sendOTPrequest(modelOTP)" class="connectFormContainer">
+      <formly-form [form]="formOTP" [fields]="fieldsOTP" [model]="modelOTP"></formly-form>
+      <wcs-button *ngIf="!communicationService.stage_OPTsent" type="submit" class="wcs-info">Submit</wcs-button>
+    </form>
+    <form *ngIf="communicationService.stage_OPTsent" [formGroup]="formToken" (ngSubmit)="communicationService.sendTokenRequest(modelToken)" class="connectFormContainer">
+      <formly-form [form]="formToken" [fields]="fieldsToken" [model]="modelToken"></formly-form>
+      <wcs-button *ngIf="!communicationService.stage_TokenSent" type="submit" class="wcs-info">Submit</wcs-button>
+    </form>
+  </wcs-card-body>
+</wcs-card>

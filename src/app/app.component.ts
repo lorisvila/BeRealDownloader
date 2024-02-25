@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommunicationService } from "./services/communication.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BeRealDownloader';
+
+  constructor(
+    public communicationService: CommunicationService
+  ) {}
+
 }

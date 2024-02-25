@@ -35,6 +35,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.scss",
+              "node_modules/wcs-core/dist/wcs/wcs.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -94,6 +97,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.scss",
+              "node_modules/wcs-core/dist/wcs/wcs.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -101,5 +107,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

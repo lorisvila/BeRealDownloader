@@ -159,6 +159,7 @@ export class CommunicationService {
           localStorage.setItem('memFeed', JSON.stringify(memFeed))
           this.allMemFeed = memFeed
           console.log('Feed recovered : ', memFeed)
+          this.prepareFeedElements()
         }
       }, (error) => {
         this.notif.error('Une erreur est survenue lors / dans la requête')
